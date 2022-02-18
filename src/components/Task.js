@@ -1,5 +1,14 @@
+import { useState, useEffect } from "react";
 import { List } from "antd";
 
 export default function Task({ item }) {
-  return <List.Item>{item.task}</List.Item>; //has a built in component inside List and has a function to list the items
+    const [itemStyle, setItemStyle] = useState({});
+    useEffect(() => {
+        if (item.done) {
+            setItemStyle({ color: 'grey', textDecoration: 'line-through' })
+        } else {
+            setItemStyle({ color: 'black', textDecoration: 'none'})
+        }
+    },[item]) //saying if the item changes, run the useeffect
+  return <List.Item style={itemStyle}>{item.task}</List.Item>; //has a built in component inside List and has a function to list the items
 }
