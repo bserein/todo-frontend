@@ -9,6 +9,6 @@ export default function Task({ item }) {
         } else {
             setItemStyle({ color: 'black', textDecoration: 'none'})
         }
-    },[item]) //saying if the item changes, run the useeffect
-  return <List.Item style={itemStyle}>{item.task}</List.Item>; //has a built in component inside List and has a function to list the items
+    },[item]) //saying if the item changes, run the useEffect
+  return <List.Item style={itemStyle}>{item.task}</List.Item>; //has a built in component inside List and has a function to list the items// this is adding a style based if the item is done or not
 }

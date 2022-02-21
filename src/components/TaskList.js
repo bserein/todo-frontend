@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react"; //we could get rid of useState because its setting the tasks in Main now
 import { List } from "antd";
 import Task from "./Task";
 
@@ -10,8 +10,8 @@ import Task from "./Task";
 //     { id: 5, task: 'Buy Paper Towels', done: false },
 // ]
 
-export default function TaskList() {
-  const [tasks, setTasks] = useState(); //you can now remove the fake tasks to check the database for any tasks
+export default function TaskList({tasks, setTasks}) {
+  // const [tasks, setTasks] = useState([]); //you can now remove the fake tasks to check the database for any tasks // we comment it out to put this useState in Main to use in both new task and task list, then destructure it for the TaskList 
 
   useEffect(() => {
     //GET DATA FROM API
@@ -28,7 +28,8 @@ export default function TaskList() {
     <List
       bordered //bordered by itself a prop, is like saying bordered={true} so because its already true you can leave it as true
       dataSource={tasks}
-      renderItem={(item) => <Task item={item} />}
+      size="large"
+      renderItem={(item) => <Task item={item} />} //this will put the data from tasks
     />
   );
 
