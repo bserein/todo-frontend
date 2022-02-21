@@ -29,7 +29,7 @@ export default function TaskList({tasks, setTasks}) {
       bordered //bordered by itself a prop, is like saying bordered={true} so because its already true you can leave it as true
       dataSource={tasks}
       size="large"
-      renderItem={(item) => <Task item={item} />} //this will put the data from tasks
+      renderItem={(item) => <Task item={item} setTasks={setTasks}/>} //this will put the data from tasks
     />
   );
 
