@@ -22,7 +22,10 @@ export default function TaskList({ tasks, setTasks, loading, setLoading }) {
         setTasks(data); //you could also just say setTasks
         setLoading(false);
       })
-      .catch(alert);
+      .catch(err => {
+        alert(err);
+        setLoading(false)
+      });
   }, []);
 
   //TASK HAS ALL THE DATA
