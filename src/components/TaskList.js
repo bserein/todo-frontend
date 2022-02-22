@@ -10,14 +10,18 @@ import Task from "./Task";
 //     { id: 5, task: 'Buy Paper Towels', done: false },
 // ]
 
-export default function TaskList({tasks, setTasks}) {
-  // const [tasks, setTasks] = useState([]); //you can now remove the fake tasks to check the database for any tasks // we comment it out to put this useState in Main to use in both new task and task list, then destructure it for the TaskList 
+export default function TaskList({ tasks, setTasks, loading, setLoading }) {
+  // const [tasks, setTasks] = useState([]); //you can now remove the fake tasks to check the database for any tasks // we comment it out to put this useState in Main to use in both new task and task list, then destructure it for the TaskList
 
   useEffect(() => {
+    setLoading(true);
     //GET DATA FROM API
     fetch("https://much-todo-bas.uc.r.appspot.com/tasks")
       .then((response) => response.json())
-      .then((data) => setTasks(data)) //you could also just say setTasks
+      .then((data) => {
+        setTasks(data); //you could also just say setTasks
+        setLoading(false);
+      })
       .catch(alert);
   }, []);
 
@@ -29,7 +33,14 @@ export default function TaskList({tasks, setTasks}) {
       bordered //bordered by itself a prop, is like saying bordered={true} so because its already true you can leave it as true
       dataSource={tasks}
       size="large"
-      renderItem={(item) => <Task item={item} setTasks={setTasks}/>} //this will put the data from tasks
+      renderItem={(item) => ( //render item is like .map
+        <Task
+          item={item}
+          setTasks={setTasks}
+          loading={loading}
+          setLoading={setLoading}
+        />
+      )} //this will put the data from tasks
     />
   );
 

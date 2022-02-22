@@ -1,4 +1,4 @@
-import { Menu, Layout } from 'antd';
+import { Layout } from 'antd';
 import Main from "./components/Main";
 
 //you can also structure it this was

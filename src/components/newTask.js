@@ -1,7 +1,7 @@
 import { Input, Button } from "antd";
 import { useState } from "react";
 
-export default function NewTask({ setTasks }) {
+export default function NewTask({ setTasks, setLoading }) {
   //we now have the setTasks in Main and dropping it down to new Tasks
   const [newTask, setNewTask] = useState(""); //you need a usestate to hold onto the value when you add a task
 
@@ -12,6 +12,7 @@ export default function NewTask({ setTasks }) {
     const taskObject = {
       task: newTask,
     };
+    setLoading(true);
     console.log("sending to API");
     fetch("https://much-todo-bas.uc.r.appspot.com/tasks", {
       //gets the data from the database
@@ -27,10 +28,16 @@ export default function NewTask({ setTasks }) {
         setNewTask("");
         fetch("https://much-todo-bas.uc.r.appspot.com/tasks")
           .then((response) => response.json())
-          .then((data) => setTasks(data))
+          .then((data) => {
+            setTasks(data);
+            setLoading(false);
+          })
           .then((data) => console.log("data was added:", data)); //so we can make sure we know what data is being added
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        alert(err);
+        setLoading(false);
+      });
   };
 
   const handleInputText = (event) => {
