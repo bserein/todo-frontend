@@ -1,4 +1,4 @@
-import { Input, Button } from "antd";
+import { Input } from "antd";
 import { useState } from "react";
 
 export default function NewTask({ setTasks, setLoading }) {
@@ -44,7 +44,7 @@ export default function NewTask({ setTasks, setLoading }) {
     setNewTask(event.target.value);
   };
 
-  console.log("newTask state here ->>", newTask);
+//   console.log("newTask state here ->>", newTask);
 
   return (
     <>

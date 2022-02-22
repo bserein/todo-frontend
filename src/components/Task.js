@@ -59,7 +59,7 @@ export default function Task({ item, setTasks, setLoading }) {
           method: "DELETE",
         })
           .then(() => {
-            fetch("https://much-todo-bas.uc.r.appspot.com/tasks")
+            fetch('https://much-todo-bas.uc.r.appspot.com/tasks')
               .then(response => response.json())
               .then(data => {
                 setTasks(data);
