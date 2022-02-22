@@ -71,7 +71,6 @@ export default function Task({ item, setTasks, setLoading }) {
             setLoading(false);
           });
       };
-      
       return (
         <>
           <List.Item style={itemStyle}>
