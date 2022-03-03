@@ -1,17 +1,4 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -24,15 +11,32 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.background {
+  background-image: url("/src/Todobackground.png");
+  background-size: cover;
+  background-position: center center;
+  /* height: calc(200vh - 200px); */
+  min-height: 420px;
+  background-attachment: fixed;
+}
+.header {
+  z-index: 10;
+  color: white;
+  text-align: center;
+  font-size: xx-large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-list {
+  background-color: white;
+  padding: "40px 40px 40px";
+  opacity: 0.9;
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 100px; 
+  margin-bottom: 100px;
+}
+
+.new-task {
+  margin-bottom: 35px;
 }

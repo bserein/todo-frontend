@@ -51,13 +51,14 @@ export default function NewTask({ setTasks, setLoading }) {
       {/* <Input.Group compact> */}
         {/* this is a sub component that styles the button */}
         <Input.Search
+        className="new-task"
           placeholder="Enter Task Here"
           value={newTask}
           onChange={(event) => handleInputText(event)}
           enterButton="Add Task" 
         size="Large"
         onSearch={handleButtonSubmit}
-          style={{ width: "calc(100% - 100px)" }}
+          style={{ width: "calc(100%)" }}
         //   the order of these props dont matter 
         />
         {/* <Button type="primary" onClick={handleButtonSubmit}> //you no longer need this Button method and you can use the other one Search
